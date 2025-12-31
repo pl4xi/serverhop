@@ -45,7 +45,7 @@ function serverhop(_script)
         body = HttpService:JSONDecode(e)
         
         if body and body.data then
-            for i, v in next, body.data do
+            for _, v in next, body.data do
                 if type(v) == "table" and tonumber(v.playing) and tonumber(v.maxPlayers) and v.playing < v.maxPlayers and v.id ~= JobId then
                     table.insert(servers, 1, v.id)
                 end
@@ -66,7 +66,7 @@ function serverhop(_script)
                     TeleportService:TeleportToPlaceInstance(PlaceId, random_server, LocalPlayer)
                 end
 
-                task.wait(3)
+                task.wait(30)
             end
         end)
 
@@ -80,5 +80,3 @@ function serverhop(_script)
         serverhop(_script)
     end 
 end
-
-return serverhop
