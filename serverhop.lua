@@ -80,3 +80,5 @@ function serverhop(_script)
         serverhop(_script)
     end 
 end
+
+return serverhop
